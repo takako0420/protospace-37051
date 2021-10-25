@@ -10,9 +10,9 @@ class PrototypesController < ApplicationController
   def create
   end
 
-  #private
- # def prototype_params
-  #  params.require(:Prototype).permit(:content, :image)
-  #end
+  private
 
+  def prototype_params
+    params.require(:Prototype).permit(:title, :catch_copy, :concept, :image).merge(user_id: current_user.id)
+  end
 end
